@@ -13,7 +13,6 @@ import {
   Keyboard,
 } from "react-native";
 
-
 function Login({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +27,7 @@ function Login({ navigation }) {
     if (username !== User.username || password !== User.password) {
       return Alert.alert("Username or Password incorrect !");
     }
-    navigation.navigate('JobList');
+    navigation.navigate("JobList");
   };
 
   return (
@@ -66,7 +65,7 @@ function Login({ navigation }) {
           ></TextInput>
         </View>
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          Login
+         <Text style={styles.txtLogin}>Login</Text>
         </TouchableOpacity>
         <View style={styles.view}>
           <Text style={styles.TextSignUp}>Haven't account ?</Text>

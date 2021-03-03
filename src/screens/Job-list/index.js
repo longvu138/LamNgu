@@ -6,21 +6,22 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import dataJob from "../../data/Jobs";
+import data from "../../data/Jobs";
 import Header from "../../components/Header/header";
 
-import styles from '../Job-list/styles'
+import styles from "../Job-list/styles";
 
-function ItemList({ dataJob }) {
+function ItemList({ data }) {
   return (
     <TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.content}>
-          
-		  <Text style={styles.contentJob}>{dataJob.content}</Text>
-		  <Text style={styles.date}>Date: {dataJob.date}</Text>
-		  <Text style={styles.time}>Time: {dataJob.time}</Text>
-		  <Text style={styles.last}>Last: {dataJob.last}</Text>
+          <Text style={styles.id}>{data.id}{'/'}</Text>
+          <Text style={styles.header}>{data.name}</Text>
+          <Text style={styles.contentJob}>{data.content}</Text>
+          <Text style={styles.date}>Date: {data.date}</Text>
+          <Text style={styles.time}>Time: {data.time}</Text>
+          <Text style={styles.last}>Last: {data.last}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -29,9 +30,9 @@ function ItemList({ dataJob }) {
 function JobList({ navigation }) {
   return (
     <View style={styles.waper}>
-      <Header title="Job to do"></Header>
+      <Header title="Job to do" onBack={() => navigation.navigate("Login")} ></Header>
       <FlatList
-        data={dataJob}
+        data={data}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <ItemList data={item}></ItemList>}
       ></FlatList>

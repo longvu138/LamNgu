@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     marginBottom: 10,
+    fontWeight:'bold',
+    color: 'blue',
+    textDecorationLine:'underline'
   },
   contentJob: {
     fontSize: 15,
@@ -33,8 +36,11 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 10,
     marginBottom: 10,
+    fontStyle:'italic'
   },
   time: {
+    
+    fontStyle:'italic',
     fontSize: 10,
     marginBottom: 10,
   },
@@ -43,5 +49,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight:'bold'
   },
+  id:{
+    fontSize:20,
+    fontWeight:'bold',
+    color:'red'
+  }
 });
 export default styles;

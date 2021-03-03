@@ -38,5 +38,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  txtLogin: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight:'bold'
+  },
 });
 export default styles;

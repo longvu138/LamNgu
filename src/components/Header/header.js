@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 
 function Header({ title, onBack }) {
-    const checkVisibleBackBtn = () => {
+   /* const checkVisibleBackBtn = () => {
         if(onBack === null) {
             return null;
         }
@@ -12,12 +12,15 @@ function Header({ title, onBack }) {
                 <Text style={styles.backText}>Back</Text>
             </TouchableOpacity>
         )
-    }
+    } */
 
     return (
         <SafeAreaView style={styles.safeAreaView}>
             <View style={styles.container}>
-                {checkVisibleBackBtn}
+               
+                <TouchableOpacity style={styles.backBtn} onPress={onBack}>
+                <Text style={styles.backText}>Back</Text>
+            </TouchableOpacity>
                 <Text style={styles.title}>
                     {title}
                 </Text>
@@ -28,7 +31,7 @@ function Header({ title, onBack }) {
 
 Header.defaultProps = {
     title: 'Header',
-    onBack: null
+    
 }
 
 const styles = StyleSheet.create({
@@ -38,12 +41,13 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 60,
-        backgroundColor: '#fff',
+        backgroundColor: '#ddd',
         justifyContent: 'center',
         alignItems: 'center'
     },
     title: {
         fontSize: 30,
+        fontWeight:'bold'
     },
     backBtn: {
         position: 'absolute',
@@ -51,7 +55,8 @@ const styles = StyleSheet.create({
         left: 20
     },
     backText: {
-        fontSize: 20
+        fontSize: 20,
+        fontWeight:'bold'
     }
 })
 

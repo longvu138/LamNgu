@@ -60,5 +60,10 @@ const styles = StyleSheet.create({
      
   
   },
+  txtLogin: { 
+    fontSize: 20,
+    color: "#fff",
+    fontWeight:'bold'
+  }
 });
 export default styles;

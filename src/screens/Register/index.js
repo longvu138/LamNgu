@@ -1,15 +1,15 @@
 import React from "react";
-import styles from './styles';
+import styles from "./styles";
 import {
   Text,
   TextInput,
   View,
   TouchableOpacity,
-  BackHandler
+  BackHandler,
 } from "react-native";
-import Login from '../Login'
+import Login from "../Login";
 
-function Register({navigation}) {
+function Register({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.textlogo}>Register</Text>
@@ -19,15 +19,19 @@ function Register({navigation}) {
         secureTextEntry={true}
         placeholder="Password"
       ></TextInput>
-       <TextInput
+      <TextInput
         style={styles.textinput}
         secureTextEntry={true}
         placeholder="Confirm Password"
       ></TextInput>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>Sign Up</TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={styles.txtLogin}>Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
 }
-
 
 export default Register;
