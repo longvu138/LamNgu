@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
   waper: {
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight:'bold',
     color: 'blue',
-    textDecorationLine:'underline'
+    textDecorationLine:'underline',
+    textTransform: 'uppercase'
   },
   contentJob: {
     fontSize: 15,
@@ -36,13 +38,16 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 10,
     marginBottom: 10,
-    fontStyle:'italic'
+    fontStyle:'italic',
+    textTransform: 'uppercase'
   },
   time: {
     
     fontStyle:'italic',
     fontSize: 10,
     marginBottom: 10,
+    textTransform: 'uppercase'
+    
   },
   last: {
     fontSize: 15,

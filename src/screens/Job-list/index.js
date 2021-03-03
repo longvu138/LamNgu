@@ -20,7 +20,7 @@ function ItemList({ data }) {
           <Text style={styles.header}>{data.name}</Text>
           <Text style={styles.contentJob}>{data.content}</Text>
           <Text style={styles.date}>Date: {data.date}</Text>
-          <Text style={styles.time}>Time: {data.time}</Text>
+          <Text  style={[styles.time,{textTransform: 'uppercase'}]}>Time: {data.time}</Text>
           <Text style={styles.last}>Last: {data.last}</Text>
         </View>
       </View>
