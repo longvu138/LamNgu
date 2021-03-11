@@ -28,7 +28,7 @@ function Header({ title, onBack }) {
 				<TouchableOpacity
 					style={styles.backBtn}
 					onPress={onBack}>
-					<Text style={styles.backText}>{onBack}</Text>
+					<Text style={styles.backText}>Logout</Text>
 				</TouchableOpacity>
 				<Text style={styles.title}>{title}</Text>
 			</View>

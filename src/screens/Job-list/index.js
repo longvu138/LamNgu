@@ -9,13 +9,16 @@ import {
 } from "react-native";
 import data from "../../data/Jobs";
 import Header from "../../components/Header/header";
-
+import { useNavigation } from "@react-navigation/native";
 import styles from "../Job-list/styles";
 
-function ItemList({ navigation, data }) {
+function ItemList({ data }) {
+	const navigation = useNavigation();
 	return (
 		<TouchableOpacity
-			onPress={() => navigation.navigate("JobDetail")}>
+			onPress={() =>
+				navigation.navigate("JobDetail", { idJob: data.id })
+			}>
 			<View style={styles.container}>
 				<View style={styles.content}>
 					<Text style={styles.id}>

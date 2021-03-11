@@ -21,9 +21,8 @@ import Jobs from "../../data/Jobs";
 
 function JobDetail({ navigation, route }) {
 	const { idJob } = route.params;
-
 	const job = Jobs.filter((item) => item.id === idJob)[0];
-
+	console.log(job);
 	/* const handleAddProduct = () => {
 		setNumber((state) => state + 1);
 	};
