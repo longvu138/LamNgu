@@ -26,14 +26,20 @@ function Login({ navigation }) {
 		if (password.trim() === "") {
 			return Alert.alert("Enter your Password.");
 		}
-		if (username !== User.username || password !== User.password) {
-			return Alert.alert("Username or Password incorrect !");
+		if (
+			username !== User.username ||
+			password !== User.password
+		) {
+			return Alert.alert(
+				"Username or Password incorrect !"
+			);
 		}
 		navigation.navigate("JobList");
 	};
 
 	return (
-		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+		<TouchableWithoutFeedback
+			onPress={() => Keyboard.dismiss()}>
 			<View style={styles.container}>
 				<Image
 					source={require("../../images/logo.png")}
@@ -48,7 +54,9 @@ function Login({ navigation }) {
 					<TextInput
 						style={styles.textinput}
 						placeholder='Username'
-						onChangeText={(text) => setUsername(text)}></TextInput>
+						onChangeText={(text) =>
+							setUsername(text)
+						}></TextInput>
 				</View>
 				<View>
 					<FontAwesome5
@@ -61,13 +69,21 @@ function Login({ navigation }) {
 						style={styles.textinput}
 						secureTextEntry={true}
 						placeholder='Password'
-						onChangeText={(text) => setPassword(text)}></TextInput>
+						onChangeText={(text) =>
+							setPassword(text)
+						}></TextInput>
 				</View>
-				<TouchableOpacity style={styles.button} onPress={handleLogin}>
-					<Text style={styles.txtLogin}>Log in</Text>
-				</TouchableOpacity>
+				<View>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={handleLogin}>
+						<Text style={styles.txtLogin}>Log in</Text>
+					</TouchableOpacity>
+				</View>
 				<View style={styles.view}>
-					<Text style={styles.TextSignUp}>Haven't account ?</Text>
+					<Text style={styles.TextSignUp}>
+						Haven't account ?
+					</Text>
 					<Text
 						style={styles.TextSignUp}
 						onPress={() => navigation.navigate("Register")}>

@@ -9,62 +9,72 @@ import {
 	TouchableOpacity,
 } from "react-native";
 
-function Header({ title, onBack }) {
-	/* const checkVisibleBackBtn = () => {
-        if(onBack === null) {
-            return null;
-        }
-
-        return (
-            <TouchableOpacity style={styles.backBtn} onPress={onBack}>
-                <Text style={styles.backText}>Back</Text>
-            </TouchableOpacity>
-        )
-    } */
-
+function Header({
+	label,
+	goBack,
+	rightButton,
+	rightComponent,
+}) {
 	return (
-		<SafeAreaView style={styles.safeAreaView}>
+		<SafeAreaView>
 			<View style={styles.container}>
-				<TouchableOpacity
-					style={styles.backBtn}
-					onPress={onBack}>
-					<Text style={styles.backText}>Logout</Text>
-				</TouchableOpacity>
-				<Text style={styles.title}>{title}</Text>
+				{goBack && (
+					<TouchableOpacity
+						onPress={goBack}
+						style={styles.back}>
+						<Text style={styles.backBtn}>Back</Text>
+					</TouchableOpacity>
+				)}
+
+				<Text style={styles.header} numberOfLines={1}>
+					{label}
+				</Text>
+
+				{rightButton && (
+					<TouchableOpacity
+						onPress={rightButton}
+						style={styles.right}>
+						<Text>{rightComponent}</Text>
+					</TouchableOpacity>
+				)}
 			</View>
 		</SafeAreaView>
 	);
 }
 
 Header.defaultProps = {
-	title: "Header",
-	onBack: "Log-out",
+	label: "Header",
+	goBack: null,
+	rightButton: null,
 };
 
 const styles = StyleSheet.create({
-	safeAreaView: {
-		backgroundColor: "#fff",
-	},
 	container: {
-		width: "100%",
 		height: 60,
-		backgroundColor: "#ddd",
+		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
+		borderBottomColor: "rgba(0,0,0,.1)",
+		borderBottomWidth: 1,
+
+		marginTop: 20,
 	},
-	title: {
-		fontSize: 30,
+	header: {
+		fontSize: 25,
 		fontWeight: "bold",
+		marginHorizontal: 60,
+	},
+	back: {
+		position: "absolute",
+		left: 15,
+	},
+	right: {
+		position: "absolute",
+		right: 15,
 	},
 	backBtn: {
-		position: "absolute",
-		top: 20,
-		left: 20,
-	},
-	backText: {
 		fontSize: 20,
 		fontWeight: "bold",
 	},
 });
-
 export default Header;

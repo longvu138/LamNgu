@@ -11,6 +11,7 @@ import data from "../../data/Jobs";
 import Header from "../../components/Header/header";
 import { useNavigation } from "@react-navigation/native";
 import styles from "../Job-list/styles";
+import { disableExpoCliLogging } from "expo/build/logs/Logs";
 
 function ItemList({ data }) {
 	const navigation = useNavigation();
@@ -22,21 +23,11 @@ function ItemList({ data }) {
 			<View style={styles.container}>
 				<View style={styles.content}>
 					<Text style={styles.id}>
-						{" "}
-						{data.id}
-						{"/"}
-					</Text>{" "}
-					<Text style={styles.header}>{data.name}</Text>{" "}
-					{/* <Text style={styles.contentJob}>{data.content}</Text>{" "} */}
-					<Text style={styles.date}>Date: {data.date}</Text>
-					<Text
-						style={[
-							styles.time,
-							{ textTransform: "uppercase" },
-						]}>
-						Time: {data.time}
+						{data.id}.
+						<Text style={styles.header}> {data.name}</Text>
 					</Text>
-					<Text style={styles.last}>Last: {data.last}</Text>
+
+					{/* <Text style={styles.contentJob}>{data.content}</Text>{" "} */}
 				</View>
 			</View>
 		</TouchableOpacity>
@@ -45,11 +36,7 @@ function ItemList({ data }) {
 function JobList({ navigation }) {
 	return (
 		<View style={styles.waper}>
-			<Header
-				title='Job to do'
-				onBack={() =>
-					navigation.navigate("Login")
-				}></Header>
+			<Header label='Job List'></Header>
 			<FlatList
 				data={data}
 				keyExtractor={(item) => item.id}

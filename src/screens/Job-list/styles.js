@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
@@ -27,15 +29,14 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		marginBottom: 10,
 		fontWeight: "bold",
-		color: "blue",
-		textDecorationLine: "underline",
+		color: "black",
 		textTransform: "uppercase",
 	},
 	contentJob: {
 		fontSize: 15,
 		marginBottom: 10,
 	},
-	date: {
+	/* 	date: {
 		fontSize: 10,
 		marginBottom: 10,
 		fontStyle: "italic",
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
 		fontSize: 15,
 		marginBottom: 10,
 		fontWeight: "bold",
-	},
+	}, */
 	id: {
 		fontSize: 20,
 		fontWeight: "bold",

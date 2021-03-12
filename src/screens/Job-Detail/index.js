@@ -7,6 +7,7 @@ import {
 	StyleSheet,
 	ScrollView,
 } from "react-native";
+import { color } from "react-native-reanimated";
 /* import styles from "./styles"; */
 import Header from "../../components/Header/header";
 import Jobs from "../../data/Jobs";
@@ -22,7 +23,7 @@ import Jobs from "../../data/Jobs";
 function JobDetail({ navigation, route }) {
 	const { idJob } = route.params;
 	const job = Jobs.filter((item) => item.id === idJob)[0];
-	console.log(job);
+	/* console.log(job); */
 	/* const handleAddProduct = () => {
 		setNumber((state) => state + 1);
 	};
@@ -34,9 +35,8 @@ function JobDetail({ navigation, route }) {
 	return (
 		<View style={styles.container}>
 			<Header
-				onBack='Back'
-				onBack={() => navigation.goBack()}
-				title='Job detail'></Header>
+				goBack={() => navigation.navigate("JobList")}
+				label={job.name}></Header>
 			<ScrollView>
 				<View style={styles.wrapper}>
 					{/* <View
@@ -58,26 +58,10 @@ function JobDetail({ navigation, route }) {
  */}
 
 					<View style={styles.element}>
-						<Text style={styles.title}>Job name</Text>
-						<Text style={styles.content}>{job.name}</Text>
-					</View>
-					<View style={styles.element}>
 						<Text style={styles.title}>Job content</Text>
 						<Text style={styles.content}>
 							{job.content}
 						</Text>
-					</View>
-					<View style={styles.element}>
-						<Text style={styles.title}>Date</Text>
-						<Text style={styles.content}>{job.date}</Text>
-					</View>
-					<View style={styles.element}>
-						<Text style={styles.title}>Time</Text>
-						<Text style={styles.content}>{job.time}</Text>
-					</View>
-					<View style={styles.element}>
-						<Text style={styles.title}>Last</Text>
-						<Text style={styles.content}>{job.last}</Text>
 					</View>
 				</View>
 			</ScrollView>
@@ -101,6 +85,10 @@ const styles = StyleSheet.create({
 	},
 	content: {
 		fontSize: 15,
+		justifyContent: "center",
+		alignItems: "flex-end",
+		flexDirection: "column",
+		paddingHorizontal: 16,
 	},
 });
 export default JobDetail;
