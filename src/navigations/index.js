@@ -6,8 +6,9 @@ import React from "react";
 
 import Login from "../screens/Login";
 import Register from "../screens/Register";
-import JobDetail from "../screens/Job-Detail";
+import JobDetail from "../screens/JobDetail";
 import JobList from "../screens/Job-list";
+import AddJob from "../screens/AddJob";
 const Stack = createStackNavigator();
 
 function RootNavigation() {
@@ -25,6 +26,7 @@ function RootNavigation() {
 					name='JobDetail'
 					component={JobDetail}
 				/>
+				<Stack.Screen name='AddJob' component={AddJob} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

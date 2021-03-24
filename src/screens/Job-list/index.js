@@ -1,48 +1,38 @@
 /** @format */
 
-import React from "react";
-import {
-	View,
-	Text,
-	FlatList,
-	TouchableOpacity,
-} from "react-native";
-import data from "../../data/Jobs";
+import React, { useContext, useEffect } from "react";
+import { View, Text, FlatList } from "react-native";
+import Item from "./Item/index";
 import Header from "../../components/Header/header";
-import { useNavigation } from "@react-navigation/native";
-import styles from "../Job-list/styles";
-import { disableExpoCliLogging } from "expo/build/logs/Logs";
+import { ApplicationStyles } from "../../Themes/ApplicationStyles";
+import styles from "./styles";
+import Context from "../Context";
+import { Jobs } from "../../data/Jobs";
+import { useNavigation } from "@react-navigation/core";
 
-function ItemList({ data }) {
+function JobList({}) {
+	const [context, setContext] = useContext(Context);
 	const navigation = useNavigation();
-	return (
-		<TouchableOpacity
-			onPress={() =>
-				navigation.navigate("JobDetail", { idJob: data.id })
-			}>
-			<View style={styles.container}>
-				<View style={styles.content}>
-					<Text style={styles.id}>
-						{data.id}.
-						<Text style={styles.header}> {data.name}</Text>
-					</Text>
+	useEffect(() => {
+		setContext([...Jobs]);
+	}, []);
 
-					{/* <Text style={styles.contentJob}>{data.content}</Text>{" "} */}
-				</View>
-			</View>
-		</TouchableOpacity>
-	);
-}
-function JobList({ navigation }) {
 	return (
-		<View style={styles.waper}>
-			<Header label='Job List'></Header>
-			<FlatList
-				data={data}
-				keyExtractor={(item) => item.id}
-				renderItem={({ item }) => (
-					<ItemList data={item}></ItemList>
-				)}></FlatList>
+		<View style={ApplicationStyles.screen.container}>
+			<Header
+				label='Job List'
+				rightComponent={<Text>Add</Text>}
+				rightButton={() =>
+					navigation.navigate("JobDetail")
+				}></Header>
+			<View style={styles.content}>
+				<FlatList
+					data={context}
+					keyExtractor={(item) => item.id.toString()}
+					renderItem={({ item }) => {
+						return <Item data={item}></Item>;
+					}}></FlatList>
+			</View>
 		</View>
 	);
 }

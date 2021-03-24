@@ -34,7 +34,7 @@ function Header({
 					<TouchableOpacity
 						onPress={rightButton}
 						style={styles.right}>
-						<Text>{rightComponent}</Text>
+						<Text>Add</Text>
 					</TouchableOpacity>
 				)}
 			</View>
