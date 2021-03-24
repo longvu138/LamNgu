@@ -15,18 +15,18 @@ function Item({ data }) {
 	return (
 		<TouchableOpacity
 			onPress={() =>
-				navigation.navigate("ProductDetail", {
-					transData: data,
+				navigation.navigate("JobDetail", {
+					idJob: data,
 				})
 			}>
 			<View style={styles.container}>
 				<View style={styles.content}>
 					<Text style={styles.header} numberOfLines={2}>
-						{data.remark}
+						{data.name}
 					</Text>
 					<View style={[styles.dot]}></View>
 				</View>
-				<Text>{data.timeCreate}</Text>
+				<Text>{data.time}</Text>
 			</View>
 		</TouchableOpacity>
 	);

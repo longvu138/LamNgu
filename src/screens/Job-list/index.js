@@ -10,9 +10,9 @@ import Context from "../Context";
 import { Jobs } from "../../data/Jobs";
 import { useNavigation } from "@react-navigation/core";
 
-function JobList({}) {
+function JobList({ navigation }) {
 	const [context, setContext] = useContext(Context);
-	const navigation = useNavigation();
+
 	useEffect(() => {
 		setContext([...Jobs]);
 	}, []);
@@ -20,10 +20,10 @@ function JobList({}) {
 	return (
 		<View style={ApplicationStyles.screen.container}>
 			<Header
-				label='Job List'
+				label='Todo'
 				rightComponent={<Text>Add</Text>}
 				rightButton={() =>
-					navigation.navigate("JobDetail")
+					navigation.navigate("AddJob")
 				}></Header>
 			<View style={styles.content}>
 				<FlatList
