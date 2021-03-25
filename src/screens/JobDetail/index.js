@@ -5,18 +5,18 @@ import React, {
 	useState,
 	useEffect,
 } from "react";
-
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, ScrollView } from "react-native";
 import styles from "./styles";
 import Header from "../../components/Header/header";
 import ApplicationStyles from "../../Themes/ApplicationStyles";
 import Context from "../Context";
 
-function JobDetail({ navigation, route }) {
+function JobDetail({route }) {
 	const { idJob } = route.params;
 	const [job, setJob] = useState({});
 	const [context, setConText] = useContext(Context);
-
+	const navigation = useNavigation();
 	useEffect(() => {
 		const job = context.find(
 			(item) => item.id === idJob.id

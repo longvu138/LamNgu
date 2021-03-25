@@ -12,23 +12,17 @@ import AddJob from "../screens/AddJob";
 const Stack = createStackNavigator();
 
 function RootNavigation() {
-	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				screenOptions={{ headerShown: false }}>
-				<Stack.Screen name='Login' component={Login} />
-				<Stack.Screen
-					name='Register'
-					component={Register}
-				/>
-				<Stack.Screen name='JobList' component={JobList} />
-				<Stack.Screen
-					name='JobDetail'
-					component={JobDetail}
-				/>
-				<Stack.Screen name='AddJob' component={AddJob} />
-			</Stack.Navigator>
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="JobList" component={JobList} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+       
+        <Stack.Screen name="JobDetail" component={JobDetail} />
+        <Stack.Screen name="AddJob" component={AddJob} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 export default RootNavigation;

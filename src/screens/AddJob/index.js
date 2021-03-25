@@ -13,12 +13,14 @@ import ApplicationStyles from "../../Themes/ApplicationStyles";
 import Header from "../../components/Header/header";
 import Context from "../Context";
 import styles from "./styles";
-function ItemInputJob(value, onChange, index) {
+import { useNavigation } from '@react-navigation/native';
+function ItemInputJob({value, onChange, index}) {
 	return (
 		<TextInput
 			onChangeText={(text) => onChange(text, index)}
 			style={[styles.input, styles.inputJob]}
-			value={value}></TextInput>
+			value={value}>
+		</TextInput>
 	);
 }
 ItemInputJob.defaultProps = {
@@ -44,9 +46,9 @@ function AddJob(props) {
 		}
 
 		var time = new Date();
-		const currentTime = `${time.getHours()}:${time.getMinutes()} 
-		${time.getDate()}/${time.getMonth()}/${time.getFullYear()}`;
-		//Get time
+		const currentTime = `${time.getHours()}:${time.getMinutes()} ${time.getDate()}/${
+			time.getMonth() + 1
+		}/${time.getFullYear()}`;
 		setContext((state) => [
 			...state,
 			{
@@ -59,7 +61,7 @@ function AddJob(props) {
 		navigation.navigate("JobList");
 	};
 
-	const handleAddItemJob = () => {
+	const 	handleAddItemJob = () => {
 		setListJob((state) => {
 			return [...state, ""];
 		});
@@ -83,7 +85,8 @@ function AddJob(props) {
 				<ItemInputJob
 					onChange={handleChangeText}
 					index={-1}
-					value={listJob[0]}></ItemInputJob>
+					value={listJob[0]}>					
+				</ItemInputJob>
 			);
 		}
 
@@ -105,20 +108,18 @@ function AddJob(props) {
 	return (
 		<View style={ApplicationStyles.screen.container}>
 			<Header
-				goBack={() => navigation.navigate("Products")}
-				label='New Job'
-				rightButton={() =>
-					navigation.navigate("JobList")
-				}></Header>
+				goBack={() => navigation.goBack()}
+				// label='New Job'
+				// rightButton={() =>
+				// 	navigation.navigate("JobList")}
+					></Header>
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.content}>
 					<Text style={styles.header}>Name of job</Text>
 					<TextInput
 						style={styles.input}
 						value={title}
-						onChangeText={(text) =>
-							setTitle(text)
-						}></TextInput>
+						onChangeText={(text) =>setTitle(text)}></TextInput>
 
 					<View style={styles.inputGroup}>
 						<Text style={styles.header}>Content</Text>

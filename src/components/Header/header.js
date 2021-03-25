@@ -34,7 +34,7 @@ function Header({
 					<TouchableOpacity
 						onPress={rightButton}
 						style={styles.right}>
-						<Text>Add</Text>
+						<Text style={styles.btnAdd}>Add</Text>
 					</TouchableOpacity>
 				)}
 			</View>
@@ -71,6 +71,11 @@ const styles = StyleSheet.create({
 	right: {
 		position: "absolute",
 		right: 15,
+		
+	},
+	btnAdd:{
+		fontSize: 20,
+		fontWeight: "bold",
 	},
 	backBtn: {
 		fontSize: 20,
